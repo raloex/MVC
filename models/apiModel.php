@@ -1,20 +1,56 @@
 <?php
 
 class ApiModel extends Model{
-    
+        
     public function __construct() {
         parent::__construct();
     }
     
+    public function insertUser($datos){
+        try{
+            $query = $this->db->connect()->prepare('INSERT INTO user (name, lastname, email, password) VALUES (:name, :lastname, :email, :password)');
+            $query->execute($datos);
+
+            return array('message' => 'Usuario creado');
+        }catch(PDOException $e){
+            return array('error' => $e->getMessage());
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public function insert($datos){
-        //insertar datos en la BD
         try{
             $query = $this->db->connect()->prepare('INSERT INTO alumnos (matricula, nombre, apellidos) VALUES (:matricula, :nombre, :apellidos)');
             $query->execute($datos);
-            return true;
+            return 'Alumno creado con éxito';
         }catch(PDOException $e){
-            //echo $e->getMessage();
-            return false;
+            return 'Error: ' . $e->getMessage();
         }
     }
     
