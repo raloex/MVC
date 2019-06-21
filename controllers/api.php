@@ -75,7 +75,6 @@ class Api extends Controller{
         header("Access-Control-Max-Age: 3600");
         header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
         
-        
         try {
             if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
                 http_response_code(401);
