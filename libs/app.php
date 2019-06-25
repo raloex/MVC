@@ -24,7 +24,6 @@ class App{
             $controller = new $url[0];
             $controller->loadModel($url[0]);
             
-            // # elementos del arreglo
             $nparam = sizeof($url);
             
             switch ($nparam){
